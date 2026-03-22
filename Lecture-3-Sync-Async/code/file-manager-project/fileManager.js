@@ -21,7 +21,7 @@ const rl = readline.createInterface({
 
 // Main menu function
 async function menu() {
-
+    console.clear();
     console.log(chalk.blue.bold('\n📁 File System Manager\n'))
 
     // List of available options
