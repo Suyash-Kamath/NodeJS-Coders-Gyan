@@ -120,6 +120,8 @@ async function menu() {
         }
     }
 
+    await rl.question(chalk.grey('\nPress ENTER to continue...'))
+
     // 🔁 Call menu again after each operation (important for continuous CLI)
     menu()
 }
