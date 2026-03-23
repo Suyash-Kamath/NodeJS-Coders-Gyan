@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streaming SSE</title>
+</head>
+<body>
+    <h1>Live Number Counting</h1>
+    <div id="container"></div>
+    <script>
+        const container = document.getElementById('container')
+        // Create a connection to the SSE endpoint
+const eventSource = new EventSource('http://localhost:3000/stream')
+
+// Fired once when connection is established
+eventSource.onopen = () => {
+  console.log('Connection opened')
+}
+
+// Fired every time a message arrives from the server
+eventSource.onmessage = (event) => {
+  console.log('Received:', event.data)  // event.data contains your payload
+
+  // Create a new div for each incoming message
+  const div = document.createElement('div')
+  div.textContent = event.data
+  div.classList.add('event')
+
+  // Append it to the container on the page
+  document.getElementById('container').appendChild(div)
+}
+
+// Fired if the connection errors or drops
+eventSource.onerror = (error) => {
+  console.log('Error:', error)
+}
+
+    </script>
+</body>
+</html>
