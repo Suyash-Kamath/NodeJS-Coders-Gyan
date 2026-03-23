@@ -1,0 +1,9 @@
+{
+  "name": "expense-tracker-project",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node serverByCodex.js"
+  }
+}
