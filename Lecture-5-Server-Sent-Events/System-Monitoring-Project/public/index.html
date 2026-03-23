@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>System Monitor (SSE)</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <div>
+          <h1>System Monitor</h1>
+          <p class="subtitle">Live metrics over Server-Sent Events</p>
+        </div>
+        <div class="status">
+          <span class="dot" id="statusDot"></span>
+          <span id="statusText">Connecting...</span>
+        </div>
+      </header>
+
+      <section class="metrics">
+        <div class="card">
+          <h2>Memory</h2>
+          <div class="memory">
+            <div class="memory-bar">
+              <div class="memory-fill" id="memoryFill"></div>
+            </div>
+            <div class="memory-meta" id="memoryMeta">--</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Disk</h2>
+          <div class="memory">
+            <div class="memory-bar">
+              <div class="memory-fill" id="diskFill"></div>
+            </div>
+            <div class="memory-meta" id="diskMeta">--</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Load Average</h2>
+          <div class="load-grid">
+            <div class="load-item">
+              <span class="label">1m</span>
+              <span id="load1">--</span>
+            </div>
+            <div class="load-item">
+              <span class="label">5m</span>
+              <span id="load5">--</span>
+            </div>
+            <div class="load-item">
+              <span class="label">15m</span>
+              <span id="load15">--</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card cpu-card">
+        <h2>CPU Cores</h2>
+        <div class="cores" id="cores"></div>
+      </section>
+
+      <section class="card">
+        <h2>Latest Update</h2>
+        <div class="latest" id="latest">--</div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
